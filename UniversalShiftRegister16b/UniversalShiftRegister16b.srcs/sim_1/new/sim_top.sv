@@ -31,7 +31,24 @@ module sim_top(
     logic simclk = 0;
     
     always #1 simclk = ~simclk;
-    top UUT(.clk(simclk), .Sin(sim_Sin), .Penable(enable), .Pin(sim_Pin), .Sout(sim_Sout), .Pout(sim_Pout));
-    always @(negedge simclk) sim_Sin = ~sim_Sin;
+    USR16b UUT(.clk(simclk), .Sin(sim_Sin), .Penable(enable), .Pin(sim_Pin), .Sout(sim_Sout), .Pout(sim_Pout));
+    //always @(negedge simclk) sim_Sin = ~sim_Sin;
+    initial begin
+        enable = 1;
+        sim_Pin = 16'b0_00000000001_000_1;
+        #2
+        enable = 0;
+        #30
+        enable = 1;
+        sim_Pin = 16'b1111111_010101010;
+        #2
+        enable = 0;
+        #30
+        enable = 1;
+        sim_Pin = 16'b101010_1111111111;
+        #2
+        enable = 0;
+        sim_Sin = 1;
+     end
     
 endmodule

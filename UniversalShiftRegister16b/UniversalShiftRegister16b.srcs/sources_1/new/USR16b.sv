@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 03/06/2025 05:34:02 PM
+// Create Date: 03/07/2025 11:38:42 AM
 // Design Name: 
-// Module Name: top
+// Module Name: USR16b
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module top(
+module USR16b(
     input Sin,
     input [15:0] Pin,
     input Penable,
