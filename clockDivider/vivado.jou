@@ -1,0 +1,38 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Sat Mar  8 19:53:37 2025
+# Process ID         : 29872
+# Current directory  : C:/Users/ja202/Documents/GitHub/Final-Project/clockDivider
+# Command line       : vivado.exe -gui_launcher_event rodinguilauncherevent11588 C:\Users\ja202\Documents\GitHub\Final-Project\clockDivider\clockDivider.xpr
+# Log file           : C:/Users/ja202/Documents/GitHub/Final-Project/clockDivider/vivado.log
+# Journal file       : C:/Users/ja202/Documents/GitHub/Final-Project/clockDivider\vivado.jou
+# Running On         : JoseLaptop
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26100
+# Processor Detail   : Intel(R) Core(TM) i9-14900HX
+# CPU Frequency      : 2419 MHz
+# CPU Physical cores : 24
+# CPU Logical cores  : 32
+# Host memory        : 16869 MB
+# Swap memory        : 16642 MB
+# Total Virtual      : 33512 MB
+# Available Virtual  : 13814 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/ja202/Documents/GitHub/Final-Project/clockDivider/clockDivider.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+source dclkSim.tcl
+close_sim
+launch_simulation
+source dclkSim.tcl
+close_sim
+launch_simulation
+source dclkSim.tcl
+close_sim
+launch_simulation
+source dclkSim.tcl
+close_sim

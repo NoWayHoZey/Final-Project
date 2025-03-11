@@ -1,0 +1,11 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../SensCounter.srcs/sources_1/new/SensCount.sv" \
+"../../../../SensCounter.srcs/sources_1/new/TFlipFlop.sv" \
+"../../../../SensCounter.srcs/sim_1/new/SenContSim.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
