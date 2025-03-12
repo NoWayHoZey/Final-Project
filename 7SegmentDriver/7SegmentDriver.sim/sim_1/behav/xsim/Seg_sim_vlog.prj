@@ -1,0 +1,12 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../7SegmentDriver.srcs/sources_1/new/RingCounter.sv" \
+"../../../../7SegmentDriver.srcs/sources_1/new/SegInterpreter.sv" \
+"../../../../7SegmentDriver.srcs/sources_1/new/SegmentDriver.sv" \
+"../../../../7SegmentDriver.srcs/sim_1/new/Seg_sim.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
