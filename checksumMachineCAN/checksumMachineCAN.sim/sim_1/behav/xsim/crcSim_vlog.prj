@@ -1,0 +1,10 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../checksumMachineCAN.srcs/sources_1/new/checksumMachine.sv" \
+"../../../../checksumMachineCAN.srcs/sim_1/new/crcSim.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Eric/CodeProjects/CPE133/checksumMachineCAN/checksumMachineCAN.srcs/sources_1/new/checksumMachine.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module checksumMachine
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Eric/CodeProjects/CPE133/checksumMachineCAN/checksumMachineCAN.srcs/sim_1/new/crcSim.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module crcSim
