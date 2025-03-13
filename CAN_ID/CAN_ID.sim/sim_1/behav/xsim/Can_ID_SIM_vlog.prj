@@ -1,0 +1,10 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../CAN_ID.srcs/sources_1/new/Can_ID.sv" \
+"../../../../CAN_ID.srcs/sim_1/new/Can_ID_SIM.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

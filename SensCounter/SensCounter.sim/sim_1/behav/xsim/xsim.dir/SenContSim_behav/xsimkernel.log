@@ -2,3 +2,6 @@ Running: xsim.dir/SenContSim_behav/xsimk.exe -simmode gui -wdb SenContSim_behav.
 Design successfully loaded
 Design Loading Memory Usage: 28448 KB (Peak: 28448 KB)
 Design Loading CPU Usage: 546 ms
+Simulation completed
+Simulation Memory Usage: 29684 KB (Peak: 29684 KB)
+Simulation CPU Usage: 593 ms
