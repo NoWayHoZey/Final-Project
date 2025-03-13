@@ -22,8 +22,12 @@
 
 module top(
     input sysClock, btn,
-    output CANSerial
+    output CANSerial, outClk1, outClk2, btnOut
     );
+    
+    assign outClk1 = CANclk;
+    assign outClk2 = timer16SIn;
+    assign btnOut = timer16;
     
     logic CANclk; //can clock register
     //clock for 1mbps can data rate
@@ -83,5 +87,5 @@ module top(
     assign CANPEnableClocks = msgclk || timer16POut[1] || timer16 || timer11POut[1] || timer11POut[10] || timer1POut[1];
     TFlipFlop CANPEnableFF (.t(1), .q(CANRegPEnable), .clk(CANPEnableClocks)); //can shift register parallel input enable flip flop
     //shift register for can output
-    USR16b CANReg (.clk(CANclk), .Pin(CANRegPIn), .Sout(CANSerial), .Penable(CANRegPEnable), .Sin(1));
+    USR16b CANReg (.clk(CANclk), .Pin(CANRegPIn), .Sout(CANSerial), .Penable(CANRegPEnable), .Sin('1));
 endmodule
