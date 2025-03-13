@@ -1,7 +1,7 @@
-Running: xsim.dir/crcSim_behav/xsimk.exe -simmode gui -wdb crcSim_behav.wdb -simrunnum 0 -socket 56664
+Running: xsim.dir/crcSim_behav/xsimk.exe -simmode gui -wdb crcSim_behav.wdb -simrunnum 0 -socket 52708
 Design successfully loaded
-Design Loading Memory Usage: 28492 KB (Peak: 28492 KB)
-Design Loading CPU Usage: 734 ms
+Design Loading Memory Usage: 28532 KB (Peak: 28532 KB)
+Design Loading CPU Usage: 1390 ms
 Simulation completed
-Simulation Memory Usage: 29232 KB (Peak: 29232 KB)
-Simulation CPU Usage: 780 ms
+Simulation Memory Usage: 29392 KB (Peak: 29392 KB)
+Simulation CPU Usage: 1421 ms

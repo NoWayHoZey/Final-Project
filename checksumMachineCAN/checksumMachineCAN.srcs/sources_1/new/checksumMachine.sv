@@ -48,7 +48,7 @@ module checksumMachine(
          crc[4] = crc[3] ^ inv;
          crc[3] = crc[2] ^ inv;
          crc[2] = crc[1];
-         crc[1] = crc[0] ^ inv;
+         crc[1] = crc[0];
          crc[0] = inv;
       end
    end
