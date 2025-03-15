@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
-| Date         : Fri Mar 14 20:32:40 2025
+| Date         : Fri Mar 14 22:24:06 2025
 | Host         : DESKTOP-P2N9ID2 running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file top_control_sets_placed.rpt
 | Design       : top
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |    18 |
-|    Minimum number of control sets                        |    18 |
+| Total control sets                                       |    17 |
+|    Minimum number of control sets                        |    17 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    81 |
+| Unused register locations in slices containing registers |    82 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,10 +39,10 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |    18 |
+| Total control sets |    17 |
 | >= 0 to < 4        |    10 |
 | >= 4 to < 6        |     0 |
-| >= 6 to < 8        |     2 |
+| >= 6 to < 8        |     1 |
 | >= 8 to < 10       |     0 |
 | >= 10 to < 12      |     0 |
 | >= 12 to < 14      |     0 |
@@ -58,9 +58,9 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              45 |           14 |
-| No           | No                    | Yes                    |              23 |           10 |
-| No           | Yes                   | No                     |             102 |           26 |
+| No           | No                    | No                     |              50 |           13 |
+| No           | No                    | Yes                    |              23 |           11 |
+| No           | Yes                   | No                     |              96 |           24 |
 | Yes          | No                    | No                     |              21 |            6 |
 | Yes          | No                    | Yes                    |               0 |            0 |
 | Yes          | Yes                   | No                     |               0 |            0 |
@@ -73,24 +73,23 @@ Table of Contents
 +------------------------------+---------------------------+---------------------------------+------------------+----------------+--------------+
 |         Clock Signal         |       Enable Signal       |         Set/Reset Signal        | Slice Load Count | Bel Load Count | Bels / Slice |
 +------------------------------+---------------------------+---------------------------------+------------------+----------------+--------------+
-| ~msgclkdiv/msgBegin0         |                           |                                 |                1 |              1 |         1.00 |
 | ~btnclkdiv/sensor            |                           | timer11Reg/ffs[10]/Q_reg_0[0]   |                1 |              1 |         1.00 |
 |  sysClock_IBUF_BUFG          | bouncer/buttonOut_i_1_n_0 |                                 |                1 |              1 |         1.00 |
+| ~timer16Reg/ffs[0]/msgBegin0 |                           |                                 |                1 |              1 |         1.00 |
+| ~hrCounter/tff[1]/q_reg_0[0] |                           | timer11Reg/ffs[10]/Q_reg_0[0]   |                1 |              1 |         1.00 |
 | ~hrCounter/tff[0]/data[0]    |                           | timer11Reg/ffs[10]/Q_reg_0[0]   |                1 |              1 |         1.00 |
-| ~hrCounter/tff[1]/data[0]    |                           | timer11Reg/ffs[10]/Q_reg_0[0]   |                1 |              1 |         1.00 |
-| ~hrCounter/tff[4]/data[0]    |                           | timer11Reg/ffs[10]/Q_reg_0[0]   |                1 |              1 |         1.00 |
 | ~hrCounter/tff[2]/data[0]    |                           | timer11Reg/ffs[10]/Q_reg_0[0]   |                1 |              1 |         1.00 |
-| ~hrCounter/tff[3]/data[0]    |                           | timer11Reg/ffs[10]/Q_reg_0[0]   |                1 |              1 |         1.00 |
+| ~hrCounter/tff[3]/q_reg_0[0] |                           | timer11Reg/ffs[10]/Q_reg_0[0]   |                1 |              1 |         1.00 |
 | ~hrCounter/tff[5]/data[0]    |                           | timer11Reg/ffs[10]/Q_reg_0[0]   |                1 |              1 |         1.00 |
+| ~hrCounter/tff[4]/data[0]    |                           | timer11Reg/ffs[10]/Q_reg_0[0]   |                1 |              1 |         1.00 |
 | ~hrCounter/tff[6]/q_reg_0[0] |                           | timer11Reg/ffs[10]/Q_reg_0[0]   |                1 |              1 |         1.00 |
 |  sysClock_IBUF_BUFG          |                           |                                 |                4 |              6 |         1.50 |
-|  outClk1_OBUF_BUFG           |                           | timer16Reg/ffs[0]/q_reg_0       |                2 |              6 |         3.00 |
-|  outClk1_OBUF_BUFG           |                           | timer16Reg/ffs[0]/AR[0]         |                2 |             15 |         7.50 |
+| ~outClk1_OBUF_BUFG           |                           | msgclkdiv/outClk2_OBUF          |                3 |             15 |         5.00 |
 |  sysClock_IBUF_BUFG          | bouncer/count             |                                 |                5 |             20 |         4.00 |
+|  sysClock_IBUF_BUFG          |                           | btnclkdiv/counter[0]_i_1__1_n_0 |                8 |             32 |         4.00 |
 |  sysClock_IBUF_BUFG          |                           | CANclkdiv/counter[0]_i_1_n_0    |                8 |             32 |         4.00 |
 |  sysClock_IBUF_BUFG          |                           | msgclkdiv/clear                 |                8 |             32 |         4.00 |
-|  sysClock_IBUF_BUFG          |                           | btnclkdiv/counter[0]_i_1__1_n_0 |                8 |             32 |         4.00 |
-|  outClk1_OBUF_BUFG           |                           |                                 |                9 |             38 |         4.22 |
+|  outClk1_OBUF_BUFG           |                           |                                 |                8 |             43 |         5.38 |
 +------------------------------+---------------------------+---------------------------------+------------------+----------------+--------------+
 
 

@@ -26,7 +26,7 @@ module top(
     );
     
     assign outClk1 = CANclk;
-    assign outClk2 = CANRegPEnable;
+    assign outClk2 = msgBegin;
     assign btnOut = (timer16POut > 0 || timer11POut[0]);
     
     logic CANclk; //can clock register
@@ -38,7 +38,7 @@ module top(
     clockDivider  #(.COUNT(200_000_000)) msgclkdiv (.clk(sysClock), .dclk(msgclk));
     
     logic btnclk;
-    clockDivider #(.COUNT(7_000_000)) btnclkdiv (.clk(sysClock), .dclk(btnclk));
+    clockDivider #(.COUNT(14_000_000)) btnclkdiv (.clk(sysClock), .dclk(btnclk));
     
     logic buttonOut;
     btnDebounce bouncer (.clk(sysClock), .button(btn), .buttonOut(buttonOut));
@@ -55,7 +55,7 @@ module top(
     TFlipFlop timer16FF (.t(1), .start('0), .q(timer16Q), .clk(msgclk ^ timer16POut[0])); //16 bit delay enable flip flo
     
     assign msgBegin = (msgclk ^ timer16POut[0]) && timer16Q;
-    assign CANRegPEnable = msgBegin ^ timer16SOut ^ timer11POut[10];
+    assign CANRegPEnable = msgBegin ^ timer16POut[15] ^ timer11POut[10];
     
     //shift register used as bit counter
     USR16b timer16Reg (.clk(CANclk), .Pout(timer16POut), .Sout(timer16SOut), .Sin(msgBegin));
@@ -70,13 +70,13 @@ module top(
     Can_ID CANIdeaer (.clk(sysClock), .data(hrCount), .can_id_out(CANID));
     
     logic [14:0] crc; //can checksum register
-    checksumMachine crcer (.clk(CANclk), .data(CANSerial), .clr(msgBegin), .crc(crc)); //can checksum machine
+    checksumMachine crcer (.clk(~CANclk), .data(CANSerial), .clr(msgBegin), .crc(crc)); //can checksum machine
     
-    wire [7:0] CANData = hrCount[3:0] * 15;
-    wire [15:0] f1 = {4'b0000, CANID, 1'b0};
-    wire [15:0] f2 = {'0};//{5'b11111, CANData, 3'b100};
-    wire [15:0] f3 = {1'b1, crc};
-    wire [15:0] CANRegPIn = (timer16POut > 0 || timer11POut[0]) ?  f2 : (timer11POut[10:0] > 0) ?  f3 : f1;
+    reg [7:0] CANData = hrCount[3:0] * 15;
+    wire [15:0] f1 = {1'b0, CANID, 4'b0000};
+    wire [15:0] f2 = {3'b001, CANData, 5'b11111};
+    wire [15:0] f3 = {crc, 1'b1};
+    wire [15:0] CANRegPIn = (timer16POut > 0) ?  f2 : (timer11POut[10:0] > 0) ?  f3 : f1;
     logic [15:0] CANRegPOut;
     //shift register for can output
     USR16b CANReg (.clk(CANclk), .Pin(CANRegPIn), .Sout(CANSerial), .Penable(CANRegPEnable), .Sin('1), .Pout(CANRegPOut));

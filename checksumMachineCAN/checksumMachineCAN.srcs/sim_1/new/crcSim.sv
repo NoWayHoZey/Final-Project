@@ -24,7 +24,7 @@ module crcSim(
 
     );
     logic clk = 0;
-    logic [26:0] data = 27'b000000000001000000111001010;
+    logic [26:0] data = 27'b000000000011000000110100101;
     logic dataBit = data[26];
     logic clr = 0;
     logic [14:0] crc;

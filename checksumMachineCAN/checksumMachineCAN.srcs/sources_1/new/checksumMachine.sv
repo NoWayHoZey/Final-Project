@@ -32,7 +32,7 @@ module checksumMachine(
    
    always @(posedge clk or posedge clr) begin
       if (clr) begin
-         crc = 0;
+         crc = '0;
       end
       else begin
          crc[14] = crc[13] ^ inv;
@@ -48,7 +48,7 @@ module checksumMachine(
          crc[4] = crc[3] ^ inv;
          crc[3] = crc[2] ^ inv;
          crc[2] = crc[1];
-         crc[1] = crc[0];
+         crc[1] = crc[0] ^ inv;
          crc[0] = inv;
       end
    end
