@@ -1,0 +1,7 @@
+Running: xsim.dir/tffSim_behav/xsimk.exe -simmode gui -wdb tffSim_behav.wdb -simrunnum 0 -socket 58640
+Design successfully loaded
+Design Loading Memory Usage: 28476 KB (Peak: 28476 KB)
+Design Loading CPU Usage: 1452 ms
+Simulation completed
+Simulation Memory Usage: 29216 KB (Peak: 29216 KB)
+Simulation CPU Usage: 1530 ms

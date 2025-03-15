@@ -24,14 +24,8 @@ module SensCount(
     input sig,    
     input rst,        
     output [7:0] count
-);
-   
-    logic [8:0] data;
-    assign data[0] = sig;
-    assign count = data[8:1];
-    
+);  
 
-    TFlipFlop tff [7:0] (.t(1'b1),.rst(rst), .clk(data[7:0]), .q(data[8:1]));
-    
+    TFlipFlop tff [7:0] (.t('1), .start('1), .rst(rst), .clk({count[6:0], sig}), .q(count));
     
 endmodule

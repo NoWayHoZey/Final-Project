@@ -23,13 +23,14 @@
 module TFlipFlop(
     input t,
     input rst,
+    input start,
     input clk,
     output reg q
   
 );
-    initial begin 
-    q = 1;
-    end 
+    initial begin
+    q = start;
+    end
     
     always @(negedge clk or posedge rst) begin
         if (rst)

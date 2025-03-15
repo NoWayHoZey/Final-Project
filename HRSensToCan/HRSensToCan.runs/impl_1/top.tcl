@@ -97,8 +97,12 @@ proc step_failed { step } {
 OPTRACE "impl_1" END { }
 }
 
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
+set_msg_config  -id {17-179}  -suppress 
+set_msg_config  -id {17-179}  -suppress 
+set_msg_config  -id {17-179}  -suppress 
+set_msg_config  -id {17-179}  -suppress 
+set_msg_config  -id {17-179}  -suppress 
+set_msg_config  -id {17-179}  -suppress 
 
 OPTRACE "impl_1" START { ROLLUP_1 }
 OPTRACE "Phase: Init Design" START { ROLLUP_AUTO }
@@ -107,8 +111,6 @@ set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
   set_param chipscope.maxJobs 4
-  set_param synth.incrementalSynthesisCache C:/Users/Eric/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-14148-DESKTOP-P2N9ID2/incrSyn
-  set_param checkpoint.writeSynthRtdsInDcp 1
   set_param xicom.use_bs_reader 1
   set_param runs.launchOptions { -jobs 16  }
 OPTRACE "create in-memory project" START { }

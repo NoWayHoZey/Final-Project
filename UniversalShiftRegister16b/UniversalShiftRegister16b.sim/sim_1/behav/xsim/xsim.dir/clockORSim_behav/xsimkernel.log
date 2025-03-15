@@ -1,0 +1,7 @@
+Running: xsim.dir/clockORSim_behav/xsimk.exe -simmode gui -wdb clockORSim_behav.wdb -simrunnum 0 -socket 53894
+Design successfully loaded
+Design Loading Memory Usage: 28496 KB (Peak: 28496 KB)
+Design Loading CPU Usage: 1374 ms
+Simulation completed
+Simulation Memory Usage: 29188 KB (Peak: 29188 KB)
+Simulation CPU Usage: 1452 ms

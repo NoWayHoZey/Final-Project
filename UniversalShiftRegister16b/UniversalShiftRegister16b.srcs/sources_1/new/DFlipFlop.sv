@@ -23,7 +23,7 @@
 module DFlipFlop(
     input D,
     input clk,
-    output logic Q
+    output reg Q
     );
     
     always @(posedge clk) begin

@@ -1,0 +1,21 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../../CAN_ID/CAN_ID.srcs/sources_1/new/Can_ID.sv" \
+"../../../../../UniversalShiftRegister16b/UniversalShiftRegister16b.srcs/sources_1/new/DFlipFlop.sv" \
+"../../../../../7SegmentDriver/7SegmentDriver.srcs/sources_1/new/RingCounter.sv" \
+"../../../../../7SegmentDriver/7SegmentDriver.srcs/sources_1/new/SegInterpreter.sv" \
+"../../../../../7SegmentDriver/7SegmentDriver.srcs/sources_1/new/SegmentDriver.sv" \
+"../../../../../SensCounter/SensCounter.srcs/sources_1/new/SensCount.sv" \
+"../../../../../SensCounter/SensCounter.srcs/sources_1/new/TFlipFlop.sv" \
+"../../../../../UniversalShiftRegister16b/UniversalShiftRegister16b.srcs/sources_1/new/USR16b.sv" \
+"../../../../../checksumMachineCAN/checksumMachineCAN.srcs/sources_1/new/checksumMachine.sv" \
+"../../../../../clockDivider/clockDivider.srcs/sources_1/new/clockDivider.sv" \
+"../../../../HRSensToCan.srcs/sources_1/new/top.sv" \
+"../../../../HRSensToCan.srcs/sources_1/new/btnDebounce.sv" \
+"../../../../HRSensToCan.srcs/sources_1/new/enabledClock.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
